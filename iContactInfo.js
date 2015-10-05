@@ -1,10 +1,11 @@
-var tokens = require('tokens');
+var tokenizer = require('./tokens');
+var compose = require('./compose');
 
 function iContactInfo() {
-    this.foo = 'bar';
 }
 var contact = new iContactInfo();
-contact.getName = function(string){
 
+contact.getName = function(string){
 };
+
 module.exports = contact;
