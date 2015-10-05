@@ -12,8 +12,8 @@ fs.readFile('../cards/one.txt', 'utf-8', function (err, data) {
 describe('tokenizer', function(){
   it("should look for a token match", function(){
     var parsed = Tokenizer.parse('Somone named Mike is related to Borat');
-    console.log(parsed);
-    expect(parsed[0]).to.equal('bar');
+    expect(parsed[0]).to.equal('mike');
+    expect(parsed[1]).to.equal('borat');
   });
 
 });

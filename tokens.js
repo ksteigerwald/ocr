@@ -27,7 +27,7 @@ var _findNames = function(keys, str){
 
 var _purge = function(list) {
   return list.filter(function(match){ return match; });
-}
+};
 
 var _matchName = function(list) {
   return list.map(function(sub){
