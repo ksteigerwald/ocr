@@ -1,5 +1,4 @@
 var tokenizer = require('./tokens');
-var compose = require('./compose');
 
 function iContactInfo() {
 }
