@@ -33,7 +33,7 @@ var _matchName = function(list) {
   return list.map(function(sub){
    var key = sub.pop();
    var identity = sub.pop().split(' ')[0];
-    return key + identity;
+    return (key + identity).replace(/[^a-zA-Z ]/g, "");
   });
 };
 

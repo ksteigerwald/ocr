@@ -2,9 +2,7 @@ var tokenizer = require('./tokens');
 
 function iContactInfo() {
 }
-var contact = new iContactInfo();
-
-contact.getName = function(string){
-};
-
-module.exports = contact;
+iContactInfo.prototype.getName = function(string){};
+iContactInfo.prototype.getPhoneNumber = function(string) {};
+iContactInfo.prototype.getEmailAddress = function() {};
+module.exports = iContactInfo;
