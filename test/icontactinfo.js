@@ -53,6 +53,6 @@ describe('iBusinessCardParser', function(){
   });
 
   it("Should return the Full Name of the Contact", function(){
-    expect(parser.contact.getName()).to.equal('bob');
+    expect(parser.contact.getName()).to.equal('Mike');
   });
 });

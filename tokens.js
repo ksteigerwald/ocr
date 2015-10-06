@@ -13,8 +13,9 @@ function Tokenizer(){
 var tokenizer = new Tokenizer();
 
 var _findNames = function(keys, str){
+  var line = str.replace(/[^a-zA-Z ]/g, "");
   return keys.map(function(token){
-    var chunk = str.split(token);
+    var chunk = line.split(token);
 
     if(chunk.length > 1){
       chunk.push(token);
@@ -34,19 +35,16 @@ var _possibleLinks = function(list) {
    var key = sub.pop();
    var identity = sub.pop().split(' ')[0];
    return [key, identity];
-    //return (key + identity).replace(/[^a-zA-Z ]/g, "");
   });
 };
 
 var _matchName = function(stems){
-  var acuml = [];
-  stems.forEach(function(stem){
+  return stems.filter(function(stem){
     var k = stem[0], v = stem[1], list = TOKENS[k];
-    if(list.split(',').indexOf(v) != -1){
-      acuml.push(k+v);
-    }
+    return (list.split(',').indexOf(v) != -1);
+  }).map(function(names){
+    return names.join('');
   });
-  return acuml;
 };
 
 tokenizer.parse = function(str){
