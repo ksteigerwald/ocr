@@ -25,6 +25,10 @@ describe('tokenizer', function(){
     expect(parsed[0]).to.equal('mike');
     expect(parsed[1]).to.equal('borat');
   });
+  it("ensure start of string gets parsed", function(){
+    var parsed = Tokenizer.parse('Mike Smith');
+     expect(parsed[0]).to.equal('mike');
+  });
 });
 
 describe('pattern matches', function(){
