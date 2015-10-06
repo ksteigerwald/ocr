@@ -8,7 +8,8 @@ function iContactInfo(doc) {
 }
 iContactInfo.prototype.getName = function(string){
   return this.lines.filter(function(line){
-    return Tokenizer.parse(line);
+    var name = Tokenizer.parse(line);
+    return name;
   });
 };
 iContactInfo.prototype.getPhoneNumber = function(string) {};

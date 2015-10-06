@@ -1,9 +1,9 @@
 var compose = require('./compose');
 
 var TOKENS = {
-  mi: 'ike,chael,ca',
+  mi: 'ke,chael,ca',
   kr: 'is',
-  bo: 'b, bby, rat'
+  bo: 'b,bby,rat'
 };
 
 function Tokenizer(){
@@ -29,17 +29,32 @@ var _purge = function(list) {
   return list.filter(function(match){ return match; });
 };
 
-var _matchName = function(list) {
+var _possibleLinks = function(list) {
   return list.map(function(sub){
    var key = sub.pop();
    var identity = sub.pop().split(' ')[0];
-    return (key + identity).replace(/[^a-zA-Z ]/g, "");
+   return [key, identity];
+    //return (key + identity).replace(/[^a-zA-Z ]/g, "");
   });
+};
+
+var _matchName = function(stems){
+  var acuml = [];
+  stems.forEach(function(stem){
+    var k = stem[0], v = stem[1], list = TOKENS[k];
+    if(list.split(',').indexOf(v) != -1){
+      acuml.push(k+v);
+    }
+  });
+  return acuml;
 };
 
 tokenizer.parse = function(str){
   var lowered = str.toLowerCase();
-  var names = compose(_matchName, _purge,  _findNames)(this.keys, lowered);
+  var names = compose(_matchName,
+                      _possibleLinks,
+                      _purge,
+                      _findNames)(this.keys, lowered);
   return names;
 };
 
