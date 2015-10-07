@@ -51,6 +51,8 @@ describe('pattern matches', function(){
 describe('iBusinessCardParser', function(){
   before(function(){
     parser = new Parser(cards[0]);
+    parser2 = new Parser(cards[1]);
+    parser3 = new Parser(cards[2]);
   });
 
   it("Should have a card property", function(){
@@ -63,5 +65,7 @@ describe('iBusinessCardParser', function(){
 
   it("Should return the Full Name of the Contact", function(){
     expect(parser.contact.getName()).to.equal('Mike Smith');
+    expect(parser3.contact.getName()).to.equal('Arthur Wilson');
+    expect(parser2.contact.getName()).to.equal('Lisa Haung');
   });
 });

@@ -1,9 +1,11 @@
 var compose = require('./compose');
 
 var TOKENS = {
+  ar: 'thur',
   mi: 'ke,chael,ca',
   kr: 'is',
-  bo: 'b,bby,rat'
+  bo: 'b,bby,rat',
+  li: 'sa,z,zabeth'
 };
 
 function Tokenizer(){
