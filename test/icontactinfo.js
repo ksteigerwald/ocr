@@ -68,4 +68,16 @@ describe('iBusinessCardParser', function(){
     expect(parser3.contact.getName()).to.equal('Arthur Wilson');
     expect(parser2.contact.getName()).to.equal('Lisa Haung');
   });
+
+  it("Should return the email of the contact", function(){
+    expect(parser.contact.getEmailAddress()).to.equal('msmith@asymmetrik.com');
+    expect(parser2.contact.getEmailAddress()).to.equal('lisa.haung@foobartech.com');
+    expect(parser3.contact.getEmailAddress()).to.equal('awilson@abctech.com');
+  });
+
+  it("should return the phone number of the contact", function(){
+    expect(parser.contact.getPhoneNumber()).to.equal('(410)555-1234');
+    expect(parser2.contact.getPhoneNumber()).to.equal('410-555-1234');
+   expect(parser3.contact.getPhoneNumber()).to.equal('703-555-1259');
+  });
 });
