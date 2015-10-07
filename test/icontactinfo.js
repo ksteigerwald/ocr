@@ -78,6 +78,6 @@ describe('iBusinessCardParser', function(){
   it("should return the phone number of the contact", function(){
     expect(parser.contact.getPhoneNumber()).to.equal('(410)555-1234');
     expect(parser2.contact.getPhoneNumber()).to.equal('410-555-1234');
-   expect(parser3.contact.getPhoneNumber()).to.equal('703-555-1259');
+    expect(parser3.contact.getPhoneNumber()).to.equal('703-555-1259');
   });
 });
