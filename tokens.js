@@ -36,11 +36,7 @@ var _possibleLinks = function(list) {
    return [key, sub];
   });
 };
-/*
----------------
-  [] 'ASYMMETRIK LTD' 'string'
-NAMES: [ '', 'ke s', 'th' ]
-*/
+
 var _joiner = function(key, list) {
   var root = key, stems = list.split(',');
   return function(items) {

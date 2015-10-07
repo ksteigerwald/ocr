@@ -1,5 +1,4 @@
 var Contact = require('./iContactInfo');
-var ParsingExeption = require('./errors');
 
 function iBusinessCardParser(card) {
   this.card = card;

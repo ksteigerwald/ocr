@@ -16,7 +16,6 @@ fs.readFile(__dirname.replace('test', 'cards/one.txt'), 'utf-8', function (err, 
 describe('tokenizer', function(){
   it("should look for a token match", function(){
     var parsed = Tokenizer.parse('Somone named Mike is related to Borat');
-    console.log(parsed, 'PARSED');
     expect(parsed[0]).to.equal('mike');
     expect(parsed[1]).to.equal('borat');
   });
@@ -60,6 +59,6 @@ describe('iBusinessCardParser', function(){
   });
 
   it("Should return the Full Name of the Contact", function(){
-    expect(parser.contact.getName()).to.equal('Mike');
+    expect(parser.contact.getName()).to.equal('Mike Smith');
   });
 });
