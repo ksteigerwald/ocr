@@ -36,30 +36,29 @@ var _possibleLinks = function(list) {
    return [key, sub];
   });
 };
-
 /*
 ---------------
   [] 'ASYMMETRIK LTD' 'string'
 NAMES: [ '', 'ke s', 'th' ]
 */
-
 var _joiner = function(key, list) {
   var root = key, stems = list.split(',');
   return function(items) {
-    //console.log(items,'-----')
-    var part = items.split(' ').shift()
-    //console.log(root,items,'PART:',part,'Stems:', stems);
-    if(stems.indexOf !== -1) {
+    var part = items.split(' ').shift();
+    if(stems.indexOf(part) !== -1) {
       return root + part;
     }
   };
 };
+
 var _matchName = function(stems){
   return stems.filter(function(stem){
+
     var k = stem.shift(), v = stem[0], list = TOKENS[k];
+
     var wordMatches = _joiner(k,list);
-    var names = v.filter(wordMatches);
-    console.log('NAMES:',names);
+    var names = v.map(wordMatches).filter(function(item){ return item;})
+
     return (list.split(',').indexOf(v) != -1);
   }).map(function(names){
     return names.join('');
