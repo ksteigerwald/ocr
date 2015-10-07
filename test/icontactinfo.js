@@ -5,13 +5,16 @@ var Tokenizer = require('../tokens');
 var Parser = require('../iBusinessCardParser');
 var ParsingExeption = require('../errors');
 var fs = require("fs");
-var file = null;
+var cards=[];
 var parser = null;
 
-fs.readFile(__dirname.replace('test', 'cards/one.txt'), 'utf-8', function (err, data) {
-  if (err) throw err;
-  file = data;
+['one','two','three'].forEach(function(f){
+  fs.readFile(__dirname.replace('test', 'cards/'+f+'.txt'), 'utf-8', function (err, data) {
+    if (err) throw err;
+    cards.push(data);
+  });
 });
+
 
 describe('tokenizer', function(){
   it("should look for a token match", function(){
@@ -47,7 +50,7 @@ describe('pattern matches', function(){
 
 describe('iBusinessCardParser', function(){
   before(function(){
-    parser = new Parser(file);
+    parser = new Parser(cards[0]);
   });
 
   it("Should have a card property", function(){
