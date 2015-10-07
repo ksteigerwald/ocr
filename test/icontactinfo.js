@@ -10,25 +10,28 @@ var parser = null;
 
 fs.readFile(__dirname.replace('test', 'cards/one.txt'), 'utf-8', function (err, data) {
   if (err) throw err;
-  console.log(err, data);
   file = data;
 });
 
 describe('tokenizer', function(){
   it("should look for a token match", function(){
     var parsed = Tokenizer.parse('Somone named Mike is related to Borat');
+    console.log(parsed, 'PARSED');
     expect(parsed[0]).to.equal('mike');
     expect(parsed[1]).to.equal('borat');
   });
+
   it("ensure special chars are stripped", function(){
     var parsed = Tokenizer.parse('Somone named Mike, is related to Borat.');
     expect(parsed[0]).to.equal('mike');
     expect(parsed[1]).to.equal('borat');
   });
+
   it("ensure start of string gets parsed", function(){
     var parsed = Tokenizer.parse('Mike Smith');
      expect(parsed[0]).to.equal('mike');
   });
+
 });
 
 describe('pattern matches', function(){

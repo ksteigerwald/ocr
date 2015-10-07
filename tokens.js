@@ -52,16 +52,13 @@ var _joiner = function(key, list) {
 };
 
 var _matchName = function(stems){
-  return stems.filter(function(stem){
+  return stems.map(function(stem){
 
     var k = stem.shift(), v = stem[0], list = TOKENS[k];
 
     var wordMatches = _joiner(k,list);
-    var names = v.map(wordMatches).filter(function(item){ return item;})
-
-    return (list.split(',').indexOf(v) != -1);
-  }).map(function(names){
-    return names.join('');
+    var names = v.map(wordMatches).filter(function(item){ return item;});
+    return names[0];
   });
 };
 
