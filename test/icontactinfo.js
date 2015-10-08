@@ -60,24 +60,24 @@ describe('iBusinessCardParser', function(){
   });
 
   it("should have a contact object", function(){
-    expect(parser.contact.lines.length).to.equal(6);
+    expect(parser.lines.length).to.equal(6);
   });
 
   it("Should return the Full Name of the Contact", function(){
-    expect(parser.contact.getName()).to.equal('Mike Smith');
-    expect(parser3.contact.getName()).to.equal('Arthur Wilson');
-    expect(parser2.contact.getName()).to.equal('Lisa Haung');
+    expect(parser.getName()).to.equal('Mike Smith');
+    expect(parser3.getName()).to.equal('Arthur Wilson');
+    expect(parser2.getName()).to.equal('Lisa Haung');
   });
 
   it("Should return the email of the contact", function(){
-    expect(parser.contact.getEmailAddress()).to.equal('msmith@asymmetrik.com');
-    expect(parser2.contact.getEmailAddress()).to.equal('lisa.haung@foobartech.com');
-    expect(parser3.contact.getEmailAddress()).to.equal('awilson@abctech.com');
+    expect(parser.getEmailAddress()).to.equal('msmith@asymmetrik.com');
+    expect(parser2.getEmailAddress()).to.equal('lisa.haung@foobartech.com');
+    expect(parser3.getEmailAddress()).to.equal('awilson@abctech.com');
   });
 
   it("should return the phone number of the contact", function(){
-    expect(parser.contact.getPhoneNumber()).to.equal('(410)555-1234');
-    expect(parser2.contact.getPhoneNumber()).to.equal('410-555-1234');
-    expect(parser3.contact.getPhoneNumber()).to.equal('703-555-1259');
+    expect(parser.getPhoneNumber()).to.equal('410-555-1234');
+    expect(parser2.getPhoneNumber()).to.equal('410-555-1234');
+    expect(parser3.getPhoneNumber()).to.equal('703-555-1259');
   });
 });

@@ -2,6 +2,7 @@ var compose = require('./compose');
 
 var TOKENS = {
   ar: 'thur',
+  bi: 'll',
   mi: 'ke,chael,ca',
   kr: 'is',
   bo: 'b,bby,rat',

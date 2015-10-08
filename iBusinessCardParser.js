@@ -1,13 +1,18 @@
 var Contact = require('./iContactInfo');
 
 function iBusinessCardParser(card) {
+  Contact.apply(this, arguments);
+  /*
   this.card = card;
   if(typeof card === 'string') {
-    this.contact = new Contact(card);
+    this.prototype.contact = new Contact(card);
   } else {
-    this.contact = false;
+    this.prototype.contact = false;
   }
+ */
 }
+
+iBusinessCardParser.prototype = Contact.prototype;
 
 iBusinessCardParser.prototype.getContactInfo = function(){
   return this.contact;

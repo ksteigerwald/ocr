@@ -7,7 +7,7 @@ var card = null;
 fs.readFile(path, 'utf-8', function (err, data) {
   if (err) throw err;
   card = new BusinessCardParser(data);
-  var out = "Name: ".concat(card.contact.getName(), "\n", "Phone: ", card.contact.getPhoneNumber(), "\n", "Email: ", card.contact.getEmailAddress());
+  var out = "Name: ".concat(card.getName(), "\n", "Phone: ", card.getPhoneNumber(), "\n", "Email: ", card.getEmailAddress());
   console.log(out);
 });
 
