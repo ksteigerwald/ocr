@@ -4,16 +4,21 @@ function iContactInfo(doc) {
   this.card = doc;
   this.lines = doc.split('\n');
 }
-var _formatPhoneNumber = function(phone) {
-  var phoneNumber = phone.replace(/[a-zA-Z^a-zA-Z ]/g, "");//remove special chars
-  console.log(phoneNumber);
-  return phoneNumber;
-};
+
+function _formatPhoneNumber(str, format) {
+  var digits = str.replace(/\D/g, '');
+  var count = 0;
+  return format.replace(/X/g, function() {
+    return digits.charAt(count++);
+  });
+}
+
 var _validPhoneNumber = function(line){
   var pattern = /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/g;
   var phoneNumber = line.match(pattern);
   return (phoneNumber && phoneNumber[0].length >= 10 && phoneNumber[0].length <= 12) ? phoneNumber[0] : false;
 };
+
 iContactInfo.prototype.getName = function(){
   return this.lines.filter(function(line){
     var name = Tokenizer.parse(line);
@@ -23,10 +28,9 @@ iContactInfo.prototype.getName = function(){
 
 iContactInfo.prototype.getPhoneNumber = function(phone) {
   var numbers = this.lines.filter(function(line){
-    var phoneNumber = _validPhoneNumber(line);
-    if(phoneNumber) return phoneNumber;
+    return _validPhoneNumber(line);
   });
-  return numbers[0];
+  return _formatPhoneNumber(numbers[0], 'XXX-XXX-XXXX');
 };
 
 iContactInfo.prototype.getEmailAddress = function() {
